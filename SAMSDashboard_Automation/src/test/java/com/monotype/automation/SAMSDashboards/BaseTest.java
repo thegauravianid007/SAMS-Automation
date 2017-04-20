@@ -1,22 +1,44 @@
 package com.monotype.automation.SAMSDashboards;
 
+
+import java.util.HashMap;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-
+import com.monotype.automation.SAMSDashboards.pages.CommonHeaderFooter.CommonHeaderFooterMethods;
 import com.monotype.automation.SAMSDashboards.pages.LoginPage.LoginPageMethods;
 
+import utils.DecodeXLData;
 import utils.OpenBrowser;
 
 public class BaseTest {
 
 	public static WebDriver driver;
 	public LoginPageMethods loginPage;
+	public CommonHeaderFooterMethods commonHeaderFooterMethods = new CommonHeaderFooterMethods(driver); 
 	
-	public static void getBaseURL(WebDriver driver, String url)
+	String sheetName = "Sheet1";
+	String pathToXLSX = ".\\SAMS_Dashboard_Data.xlsx";
+	HashMap<String,String> importXLSXData;
+	
+
+	
+	public  void getBaseURL(WebDriver driver, String url)
 	{
 		driver.get(url);
+	}
+	
+	public String getXLSXValue(String key)
+	{
+		return importXLSXData.get(key);
+	}
+	
+	
+	public  void logout(WebDriver driver)
+	{
+		commonHeaderFooterMethods.logout();
 	}
 	
 	@BeforeSuite
@@ -29,6 +51,9 @@ public class BaseTest {
 	@BeforeTest
 	public void atBeforeTest()
 	{
-		loginPage = PageFactory.initElements(OpenBrowser.driver, LoginPageMethods.class);
+		driver = OpenBrowser.driver;
+		loginPage = PageFactory.initElements(driver, LoginPageMethods.class);
+		importXLSXData= DecodeXLData.getXLSXData(sheetName, pathToXLSX);
+		
 	}
 }

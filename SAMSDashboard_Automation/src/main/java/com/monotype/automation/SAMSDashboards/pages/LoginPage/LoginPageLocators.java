@@ -27,14 +27,14 @@ public class LoginPageLocators implements LoginPageConstants{
 		return submitButton;
 	}
 	
-	@FindBy(css = RESET_PASSWORD_BUTTON_XPATH)
+	@FindBy(xpath = RESET_PASSWORD_BUTTON_XPATH)
 	private WebElement resetPasswordButton;
 
 	protected WebElement getResetPasswordButton() {
 		return resetPasswordButton;
 	}
 	
-	@FindBy(css = WELCOME_TEXT_XPATH)
+	@FindBy(xpath = WELCOME_TEXT_XPATH)
 	private WebElement welcomeText;
 
 	protected WebElement getWelcomeText() {
@@ -55,7 +55,7 @@ public class LoginPageLocators implements LoginPageConstants{
 		return logoutButton;
 	}
 	
-	@FindBy(css = LOGOUT_TEXT_XPATH)
+	@FindBy(xpath = LOGOUT_TEXT_XPATH)
 	private WebElement logoutText;
 
 	protected WebElement getLogoutText() {

@@ -1,0 +1,11 @@
+com\monotype\automation\SAMSDashboards\pages\CommonHeaderFooter\CommonHeaderFooterMethods.class
+com\monotype\automation\SAMSDashboards\pages\BasePage.class
+com\monotype\automation\SAMSDashboards\pages\CommonHeaderFooter\CoomonHeaderFooterConstants.class
+utils\ReadXL.class
+com\monotype\automation\SAMSDashboards\pages\LoginPage\LoginPageMethods.class
+utils\OpenBrowser.class
+utils\CommonMethods$1.class
+utils\CommonMethods.class
+com\monotype\automation\SAMSDashboards\pages\LoginPage\LoginPageConstants.class
+com\monotype\automation\SAMSDashboards\pages\LoginPage\LoginPageLocators.class
+com\monotype\automation\SAMSDashboards\pages\CommonHeaderFooter\CommonHeaderFooterLocators.class
