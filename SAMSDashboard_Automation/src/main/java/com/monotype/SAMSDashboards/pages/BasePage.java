@@ -25,6 +25,11 @@ public class BasePage {
 		element.sendKeys(text);
 	}
 	
+	public void clearText(WebElement element)
+	{
+		element.clear();
+	}
+	
 	public boolean isElementPresent(WebDriver driver, WebElement element)
 	{
 		return CommonMethods.isElementPresent(driver, element);

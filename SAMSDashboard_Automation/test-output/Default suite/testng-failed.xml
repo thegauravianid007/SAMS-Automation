@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.monotype.SAMSDashboards.testcases.LoginPageTestCases">
+      <class name="com.monotype.SAMSDashboards.testcases.CommonHeaderFooterTestCases">
         <methods>
           <include name="atBeforeSuite"/>
-          <include name="loginWithValidDetails"/>
+          <include name="atAfterMethod"/>
+          <include name="createNewBrand"/>
+          <include name="atBeforeMethod"/>
           <include name="atBeforeTest"/>
         </methods>
-      </class> <!-- com.monotype.SAMSDashboards.testcases.LoginPageTestCases -->
+      </class> <!-- com.monotype.SAMSDashboards.testcases.CommonHeaderFooterTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

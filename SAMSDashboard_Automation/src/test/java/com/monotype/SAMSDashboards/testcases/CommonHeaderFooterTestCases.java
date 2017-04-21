@@ -32,25 +32,26 @@ public class CommonHeaderFooterTestCases extends BaseTest{
 		commonHeaderFooterMethods.clickNewLink();
 	}
 	
-	@Test
+	/*@Test
 	public void createNewPublisher()
 	{
 		commonHeaderFooterMethods.clickNewPublisherLink();		
 		commonHeaderFooterMethods.enterNewPublisherValues(getXLSXValue("PublisherName")+timeStamp, getXLSXValue("PublisherType"), getXLSXValue("DashboardID"), getXLSXValue("KeyContactName"), getXLSXValue("KeyContactEmail"), getXLSXValue("DesignSpecifications"), getXLSXValue("AndroidVersion"), getXLSXValue("iOSVersion"));
 		commonHeaderFooterMethods.clickCreate();
 		Assert.assertTrue(commonHeaderFooterMethods.verifyGrowlMessage(getXLSXValue("newPublisherGrowl1")+getXLSXValue("PublisherName")+timeStamp+getXLSXValue("newPublisherGrowl2")));
-	}
+	}*/
 	
-	/*@Test
+	@Test
 	public void createNewBrand()
 	{
 		commonHeaderFooterMethods.clickNewBrandLink();
-		//commonHeaderFooterMethods.enterNewBrandValues(brandName, brandEmail, brandManager);
+		commonHeaderFooterMethods.enterNewBrandValues(getXLSXValue("brandName")+timeStamp, getXLSXValue("brandEmail1")+timeStamp+getXLSXValue("brandEmail2"), getXLSXValue("brandManager"));
 		commonHeaderFooterMethods.clickCreate();
-		Assert.assertTrue(true);
+		Assert.assertTrue(commonHeaderFooterMethods.verifyGrowlMessage(getXLSXValue("newBrandGrowl1")+getXLSXValue("brandName")+timeStamp+getXLSXValue("newBrandGrowl2")));
 	}
 	
-	@Test
+	/*
+	 	@Test
 	public void createNewPack()
 	{
 		commonHeaderFooterMethods.clickNewPackLink();

@@ -30,4 +30,31 @@ public interface CommonHeaderFooterConstants {
 	String ANDROID_VERSION_CSS = "input[name='androidVersion']";
 	String IOS_VERSION_CSS = "input[name='iosVersion']";
 	
+	//-------Locators related to New Brand-------//
+	
+	String BRAND_NAME_CSS = "input[name='brandName']";
+	String BRAND_EMAIL_CSS = "input[name='brandEmail']";
+	String BRAND_MANAGER_CSS = "div[name='brandManager'] button";
+	String BRAND_MANAGER_SEARCH_CSS = "div.show input[placeholder='Search...']";
+	String SELECT_BRAND_MANAGER_XPATH1 = "//div[@name='brandManager']//span[contains(text(),'";
+	String SELECT_BRAND_MANAGER_XPATH2 = "')]";
+	
+	//-------Locators related to New Pack-------//
+	
+	String PACK_NAME_CSS = "";
+	String PACK_DISTRIBUTION_TYPE_CSS = "";
+	String PACK_REVENUE_TYPE_CSS = "";
+	String PACK_PRICE_CSS = "";
+	String PACK_BRAND_CSS = "";
+	String PACK_TAG_CSS = "";
+	String PACK_CATEGORY_CSS = "";
+	
+	
+	//-------Locators related to New Campaign-------//
+	
+	String CAMPAIGN_NAME_CSS = "";
+	String CAMPAIGN_BRAND_CSS = "";
+	
+	
+	
 }

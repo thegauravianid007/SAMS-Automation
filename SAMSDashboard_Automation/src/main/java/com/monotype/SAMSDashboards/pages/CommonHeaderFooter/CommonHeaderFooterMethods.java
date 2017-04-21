@@ -105,6 +105,20 @@ public class CommonHeaderFooterMethods extends BasePage implements CommonHeaderF
 	}
 	
 	
+	@FindBy(css = CREATE_CSS)
+	private WebElement createButton;
+		
+	protected WebElement getCreateButton() {
+		return createButton;
+	}
+	
+	@FindBy(css = CANCEL_CSS)
+	private WebElement cancelButton;
+		
+	protected WebElement getCancelButton() {
+		return cancelButton;
+	}
+	
 	
 	
 	//----- Locators related to New Publisher------//
@@ -164,19 +178,125 @@ public class CommonHeaderFooterMethods extends BasePage implements CommonHeaderF
 		return iosVersion;
 	}
 	
-	@FindBy(css = CREATE_CSS)
-	private WebElement createButton;
+	
+	//-----------------Locators related to New Brand---------------------------//
+	@FindBy(css = BRAND_NAME_CSS)
+	private WebElement brandName;
 		
-	protected WebElement getCreateButton() {
-		return createButton;
+	protected WebElement getBrandName() {
+		return brandName;
 	}
 	
-	@FindBy(css = CANCEL_CSS)
-	private WebElement cancelButton;
+	@FindBy(css = BRAND_EMAIL_CSS)
+	private WebElement brandEmail;
 		
-	protected WebElement getCancelButton() {
-		return cancelButton;
+	protected WebElement getBrandEmail() {
+		return brandEmail;
 	}
+	
+	@FindBy(css = BRAND_MANAGER_CSS)
+	private WebElement brandManager;
+		
+	protected WebElement getBrandManager() {
+		return brandManager;
+	}
+	
+
+/*	@FindBy(css = SELECT_BRAND_MANAGER_CSS1 + + SELECT_BRAND_MANAGER_CSS2)
+	private WebElement selectBrandManagerCss1;
+		
+	protected WebElement getSelectBrandManagerCss1() {
+		return selectBrandManagerCss1;
+	}
+	
+
+	@FindBy(css = SELECT_BRAND_MANAGER_CSS2)
+	private WebElement selectBrandManagerCss2;
+*/		
+	protected WebElement getSelectBrandManagerCss(String text) {
+		return driver.findElement(By.xpath(SELECT_BRAND_MANAGER_XPATH1+ text + SELECT_BRAND_MANAGER_XPATH2));
+	}
+	
+	@FindBy(css = BRAND_MANAGER_SEARCH_CSS)
+	private WebElement searchBrandManager;
+		
+	protected WebElement getSearchBrandManager() {
+		return searchBrandManager;
+	}
+	
+	
+	
+	
+	
+	
+	//-----------------Locators related to New Pack---------------------------//
+	
+	@FindBy(css = PACK_NAME_CSS)
+	private WebElement packName;
+		
+	protected WebElement getPackName() {
+		return packName;
+	}
+	
+	@FindBy(css = PACK_DISTRIBUTION_TYPE_CSS)
+	private WebElement packDistributionType;
+		
+	protected WebElement getPackDistributionType() {
+		return packDistributionType;
+	}
+	
+	@FindBy(css = PACK_REVENUE_TYPE_CSS)
+	private WebElement packRevenueType;
+		
+	protected WebElement getPackRevenueType() {
+		return packRevenueType;
+	}
+	
+	@FindBy(css = PACK_PRICE_CSS)
+	private WebElement packPrice;
+		
+	protected WebElement getPackPrice() {
+		return packPrice;
+	}
+	
+	@FindBy(css = PACK_BRAND_CSS)
+	private WebElement packBrand;
+		
+	protected WebElement getPackBrand() {
+		return packBrand;
+	}
+	
+	@FindBy(css = PACK_TAG_CSS)
+	private WebElement packTag;
+		
+	protected WebElement getPackTag() {
+		return packTag;
+	}
+	
+	@FindBy(css = PACK_CATEGORY_CSS)
+	private WebElement packCategory;
+		
+	protected WebElement getPackCategory() {
+		return packCategory;
+	}
+	
+	//-----------------Locators related to New Campaign---------------------------//
+	
+	@FindBy(css = CAMPAIGN_NAME_CSS)
+	private WebElement campaignName;
+		
+	protected WebElement getCampaignName() {
+		return campaignName;
+	}
+	
+	@FindBy(css = CAMPAIGN_BRAND_CSS)
+	private WebElement campaignBrand;
+		
+	protected WebElement getCampaignBrand() {
+		return campaignBrand;
+	}
+	
+	
 	
 	//------------------------- END OF CREATION OF ELEMENTS--------------------------------------
 	
@@ -242,18 +362,32 @@ public class CommonHeaderFooterMethods extends BasePage implements CommonHeaderF
 		clickLogout();
 	}
 	
-	public void enterNewBrandValues(String brandName, String brandEmail, String [] brandManager)
+	public void enterNewBrandValues(String brandName, String brandEmail, String brandManager)
 	{
-		
+		String[] brandManagers = CommonMethods.convertCommaSeparatedToString(brandManager);
+		waitAndEnterText(driver,getBrandName(), brandName);
+		enterText(getBrandEmail(), brandEmail);
+		waitAndClickALink(driver, getBrandManager());		
+		for(int i=0; i<brandManagers.length; i++)
+		{
+			waitAndEnterText(driver,getSearchBrandManager(),brandManagers[i]);
+			waitAndClickALink(driver,getSelectBrandManagerCss(brandManagers[i]));
+			clearText(getSearchBrandManager());
+		}
+		//Select The Brand Manager
 	}
 	
 	public void enterNewCampaignValues(String campaignName, String brandName)
 	{
-		
+		waitAndEnterText(driver,getCampaignName(),campaignName);
+		//Select Brand
 	}
 
 	public void enterNewPackValues(String packName, String packDistributionType, String packRevenueType, String packPrice, String brandName, String [] tags, String category, String shortDescription, String longDescription, String legalLines)
 	{
+		waitAndEnterText(driver, getPackName(), packName);
+		//Enter Array of Tags
+		enterText(getPackCategory(), category);
 		
 	}
 	

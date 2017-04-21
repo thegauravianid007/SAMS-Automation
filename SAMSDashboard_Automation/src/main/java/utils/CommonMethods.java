@@ -35,6 +35,12 @@ public class CommonMethods {
 	}
 	
 	
+	public static String[] convertCommaSeparatedToString(String text)
+	{
+		String [] array = text.split(",");
+		return array;
+	}
+	
 	
 	public static void waitForPageLoad(WebDriver driver, int time) {
         ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
